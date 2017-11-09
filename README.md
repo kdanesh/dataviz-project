@@ -12,7 +12,7 @@ Let's start by looking at the relationship between prescriptions and payments:
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/meetings_30dayfill.png)
 
-We see a strong positive relationship here. In other words, physicians who receive more payments prescribe more opioids on average. 
+We see a strong positive relationship here. In other words, physicians who receive more payments prescribe more opioids on average.
 
 Let's further break this relationship down, first by geography. The following two maps plot the mean number of opioid-related payments and mean opioid prescriptions by county:
 
@@ -22,7 +22,7 @@ Let's further break this relationship down, first by geography. The following tw
 
 The maps look somewhat similar.  We can confirm this with a correlation plot, which restricts to counties with at least 50 physicians:
 
-[insert correlation plot here]
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/cty_scatterplot.png)
 
 It may be worth further playing around with this plot, e.g., by coloring the points so that they correspond to certain regions of the U.S., or by having the size of the points vary with population.
 
@@ -30,25 +30,25 @@ Having broken down the relationship between payments and prescriptions by geogra
 
 The following two bar charts plot the 10 specialities receiving the most payments and prescribing the most opioids:
 
-[insert bar plot here]
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pay.png)
 
-[insert bar plot here]
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre.png)
 
 The bar charts look somewhat similar.  Again, we can confirm this with a correlation plot, which restricts to specialties with at least 1,000 physicians:
 
-[insert correlation plot here]
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_scatter.png)
 
 So far we've looked at mean payments and prescriptions by specialty.  This does not convey how much each specialty is prescribing in an absolute sense.  To get a sense for this, let's now plot total prescriptions by specialty:
 
-[insert plot here]
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre_total.png)
 
-Woah!  Primary care specialties like family practice and internal medicine account for the majority of opioid prescriptions, even though the average primary care physician doesn't prescribe nearly as much as the average pain specialist.  (There are many more primary care physicians, after all.)
+Woah!  It looks like primary care specialties like family practice and internal medicine account for the majority of opioid prescriptions, even though the average primary care physician doesn't prescribe nearly as much as the average pain specialist.  (There are many more primary care physicians, after all.)
 
 But just because the average primary care physician doesn't prescribe as much as the average pain specialist doesn't mean that some primary care physicians don't prescribe a lot.  To explore this thought, we can compare density plots of prescriptions for each group (family practitioners in red, and pain specialists in blue):
 
-[insert density plot]
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/density_fam_vs_pain.png)
 
-It looks like a nontrivial share of family practitioners prescribe more than the average pain specialist.  Probably not the best thing for public health.
+It looks like a nontrivial share of family practitioners prescribe more than the average pain specialist&mdash;Probably not the best thing for public health.
 
 ### Challenges and next steps
 
@@ -59,4 +59,5 @@ Challenges:
 - Will there be space to bring in data on deaths?
 
 Next steps:
+- Develop a clear narrative
 - Think about using data from multiple years (2013-15) to get at causality
