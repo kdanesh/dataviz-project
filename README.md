@@ -8,7 +8,7 @@ In order to study this assocation, I use the following measures:
 
 As a start, I have made the following three plots:
 
-###### Mean Number of opioid-related payments by county in 2015
+###### Mean number of opioid-related payments by county in 2015
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/map_meetings.png)
 
