@@ -48,7 +48,7 @@ But just because the average primary care physician doesn't prescribe as much as
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/density_fam_vs_pain.png)
 
-It looks like a nontrivial share of family practitioners prescribe more than the average pain specialist--probably not the best thing for public health.
+It looks like a nontrivial share of family practitioners prescribe more than the average pain specialist&mdash;Probably not the best thing for public health.
 
 ### Challenges and next steps
 
