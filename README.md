@@ -1,5 +1,7 @@
 # Should Big Pharma Market Opioids to Doctors?
 
+Here are some preliminary updates.
+
 In light of [past](http://www.nytimes.com/2007/05/10/business/11drug-web.html?mcubz=0) and [recent](http://www.npr.org/sections/thetwo-way/2017/09/19/552135830/41-states-to-investigate-pharmaceutical-companies-over-opioids) news that pharmaceutical companies may have fueled the opioid epidemic, I plan to study the association between payments made by opioid manufacturers to physicians, physician prescribing of opioids, and opioid-related deaths. In particular, I would like to see whether payments influenced prescribing patterns, and if so, whether those altered prescribing patterns led to an increase in deaths.
 
 I will use four main data sources:
