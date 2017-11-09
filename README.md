@@ -7,8 +7,8 @@ In order to study this assocation, I use the following measures:
 - opioid prescriptions: the number of 30-day prescriptions of any opioid
 
 As a start, I have made the following three plots (see plots folder in GitHub):
-- mean number of opioid-related payments by county in 2015 (map)
-- mean opioid prescriptions by county in 2015 (map)
+- mean number of opioid-related payments by county in 2015 (map; currently lacking legend)
+- mean opioid prescriptions by county in 2015 (map; also currently lacking legend)
 - mean opioid prescriptions vs number of opioid-related payments in 2015 (scatterplot)
 
 ### Challenges and next steps
