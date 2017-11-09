@@ -56,7 +56,7 @@ It looks like a nontrivial share of family practitioners prescribe more than the
 
 Challenges:
 - What is the right measure of marketing intensity? number of times a physician was paid by a pharma company, or total dollars received?
-- How much should I focus on characterizing payments and prescriptions separately vs together?  Given the richness of the data, I almost feel as if it would be worth doing an entire project on just one or the other.
+- How much should I focus on characterizing payments and prescriptions individually?  Given the richness of the data, I almost feel as if it would be worth doing an entire project on just one or the other.
 - How do I get closer to saying something about causality?
 - Will there be space to bring in data on deaths?
 
