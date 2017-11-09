@@ -14,7 +14,7 @@ Let's start by looking at the relationship between prescriptions and payments:
 
 We see a strong positive relationship here. In other words, physicians who receive more payments prescribe more opioids on average.
 
-Let's further break this relationship down, first by geography. The following two maps plot the mean number of opioid-related payments and mean opioid prescriptions by county:
+Let's further break down this relationship, first by geography. The following two maps plot the mean number of opioid-related payments and mean opioid prescriptions by county:
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/map_meetings.png)
 
