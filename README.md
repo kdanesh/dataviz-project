@@ -48,13 +48,15 @@ But just because the average primary care physician doesn't prescribe as much as
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/density_fam_vs_pain.png)
 
-It looks like a nontrivial share of family practitioners prescribe more than the average pain specialist&mdash;probably not the best thing for public health.
+It looks like a nontrivial share of family practitioners prescribe more than the average pain specialist&mdash;probably not the best thing for public health, especially considering how many more family practitioners there are:
+
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/histogram_fam_vs_pain.png)
 
 ### Challenges and next steps
 
 Challenges:
 - What is the right measure of marketing intensity? number of times a physician was paid by a pharma company, or total dollars received?
-- How much should I focus on characterizing payments and prescriptions separately vs together?
+- How much should I focus on characterizing payments and prescriptions separately vs together?  Given the richness of the data, I almost feel as if it would be worth doing an entire project on just one or the other.
 - How do I get closer to saying something about causality?
 - Will there be space to bring in data on deaths?
 
