@@ -38,7 +38,7 @@ The bar charts look somewhat similar.  Again, we can confirm this with a correla
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_scatter.png)
 
-So far we've looked at mean payments and prescriptions by specialty.  This does not convey how much each specialty is prescribing in an absolute sense.  To get a sense for this, let's now plot total prescriptions by specialty:
+So far we've looked at *average* payments and prescriptions by specialty.  This does not convey how much each specialty is prescribing in an absolute sense.  To get a sense for this, let's now plot *total* prescriptions by specialty:
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre_total.png)
 
