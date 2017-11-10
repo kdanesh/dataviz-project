@@ -1,4 +1,4 @@
-# Should Big Pharma Market Opioids to Doctors?
+# Payments, Prescriptions, and the Opioid Epidemic
 
 In light of [past](http://www.nytimes.com/2007/05/10/business/11drug-web.html?mcubz=0) and [recent](http://www.npr.org/sections/thetwo-way/2017/09/19/552135830/41-states-to-investigate-pharmaceutical-companies-over-opioids) news that pharmaceutical companies may have fueled the opioid epidemic, I plan to study the association between payments made by opioid manufacturers to physicians and opioid prescriptions. In particular, I would like to explore whether payments are significantly associated with prescriptions.
 
@@ -38,7 +38,7 @@ The bar charts look somewhat similar.  Again, we can confirm this with a correla
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_scatter.png)
 
-So far we've looked at mean payments and prescriptions by specialty.  This does not convey how much each specialty is prescribing in an absolute sense.  To get a sense for this, let's now plot total prescriptions by specialty:
+So far we've looked at *average* payments and prescriptions by specialty.  This does not convey how much each specialty is prescribing in an absolute sense.  To get a sense for this, let's now plot *total* prescriptions by specialty:
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre_total.png)
 
