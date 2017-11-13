@@ -4,6 +4,8 @@ library(hexbin)
 library(ggplot2)
 library(readr)
 library(dplyr)
+library(plyr)
+
 
 # set working directory
 setwd("/Users/Kaveh/Dropbox/Berkeley/projects/econ/opioid/data_derived")
@@ -22,7 +24,9 @@ opioidavg <- opioid %>%
             specialty=first(specialty))
 opioidavg$payment_count <- round(opioidavg$payment_count)
 
-##### PLOT 1 #####
+######### PLOT 1 ###########
+# Presciptions vs Payments 
+############################
 
 # collapse by payment count
 opioid2015_collapse_paymentcount <- opioid2015 %>% 
@@ -43,25 +47,81 @@ ggplot(opioid2015_collapse_paymentcount_trunc, aes(x=payment_count, y=mean_30)) 
   geom_point(alpha=0.5) +
   geom_smooth(method="lm") 
 
+######### PLOT 2 ###########
+# Presciptions vs Payments 
+# by specialty 
+############################
+
+# collapse by payment count
+opioid2015_collapse_paymentcount <- opioid2015 %>% 
+  group_by(payment_count, specialty) %>%
+  summarize(mean = mean(total_30_day_fill_count, na.rm=TRUE), n=n())
+
+# subset to deal with sample size issue
+opioid2015_collapse_paymentcount_trunc <- subset(opioid2015_collapse_paymentcount, payment_count<=17)
+opioid2015_collapse_paymentcount_trunc$mean[opioid2015_collapse_paymentcount_trunc$payment_count>15] <- NA
+
+ggplot(subset(opioid2015_collapse_paymentcount_trunc, specialty=="Internal Medicine"), aes(x=payment_count, y=mean)) +
+  xlab("Number of opioid-related payments received") +
+  ylab("Mean opioid prescriptions") +
+  theme_minimal(base_size = 12, base_family = "Georgia") +
+  geom_point(alpha=0.4, colour="blue") +
+  geom_smooth(method='lm', colour="blue", fill=NA) +
+  geom_point(alpha=0.4, data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Orthopedic Surgery"), colour="red") +
+  geom_smooth(data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Orthopedic Surgery"), method='lm', colour="red", fill=NA) +
+  geom_point(alpha=0.4, data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Pain Management"), colour="green") +
+  geom_smooth(data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Pain Management"), method='lm', colour="green", fill=NA) +
+  geom_point(alpha=0.4, data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Anesthesiology"), colour="purple") +
+  geom_smooth(data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Anesthesiology"), method='lm', colour="purple", fill=NA) +
+  geom_point(alpha=0.4, data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Family Medicine"), colour="orange") +
+  geom_smooth(data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Family Medicine"), method='lm', colour="orange", fill=NA) +
+  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 850, label = "Internal Medicine", color="blue", size=3, fontface=1.2) +
+  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 625, label = "Orthopedic Surgery", color="red", size=3, fontface=1.2) +
+  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 1725, label = "Pain Management", color="green", size=3, fontface=1.2) +
+  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 1485, label = "Anesthesiology", color="purple", size=3, fontface=1.2) +
+  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 795, label = "Family Medicine", color="orange", size=3, fontface=1.2) 
+
+######### PLOT 3 #########
+# Histogram of payments
+##########################
+
+# replace total_30 with 0 if missing
+opioid2015$total_30_day_fill_count[is.na(opioid2015$total_30_day_fill_count)] <- 0
+
+# create percentile function
+perc.rank <- function(x)  trunc(rank(x))/length(x)
+
+# create pctile variable
+opioid2015 <- within(opioid2015, pctile <- perc.rank(total_30_day_fill_count))
+opioid2015$pctile <- round(opioid2015$pctile*100/5)*5
+
+# create indicator for every paid
+opioid2015$payment_ever <- as.numeric(opioid2015$payment_count>0)
+
+# collapse by pctile, ever_paid
+opioid2015_collapse_pctile <- opioid2015 %>%
+  group_by(pctile, payment_ever) %>%
+  summarize(meanpay = mean(total_30_day_fill_count, na.rm=TRUE), n=n())
+
+# make plot
+ggplot(opioid2015_collapse_pctile[order(opioid2015_collapse_pctile$payment_ever, decreasing=T),], aes(x = factor(pctile), y=n, fill=payment_ever)) +
+  xlab("Percentile") +
+  ylab("Mean payments (per physician)") +
+  theme_minimal(base_size = 12, base_family = "Georgia") +
+  geom_bar(stat="identity")
 
 
-##### PLOT 2 #####
+opioid2015trunc <- subset(opioid2015, total_30_day_fill_count<2500)
 
-# clean up credentials
-## change to character
-opioid2015$credentials <- as.character(opioid2015$credentials)
-## remove all white space
-opioid2015$credentials <- gsub(" ", "", opioid2015$credentials, fixed = TRUE)
-## everything uppercase
-opioid2015$credentials <- toupper(opioid2015$credentials)
-## everything that contains MD should be MD
-opioid2015$credentials[grepl("MD",opioid2015$credentials)]<-"MD"
-## everything that contains DO should be DO
-opioid2015$credentials[grepl("DO",opioid2015$credentials)]<-"DO"
-## everything that contains DDS or DMD should be DDS
-opioid2015$credentials[grepl("DDS",opioid2015$credentials) | grepl("DMD",opioid2015$credentials)]<-"DDS"
-## everything that is not MD, DO, or DDS should be OTHER
-opioid2015$credentials[(grepl("DDS",opioid2015$credentials) | grepl("DO",opioid2015$credentials) | grepl("MD",opioid2015$credentials))==FALSE]<-"OTHER"
+ggplot(opioid2015trunc, aes(x=total_30_day_fill_count)) + 
+  xlab("Total prescriptions") +
+  ylab("Number of physicians") +
+  theme_minimal(base_size = 12, base_family = "Georgia") +
+  geom_histogram(bins=25, fill="blue", alpha=0.5)
+
+######### PLOT 4 #########
+# Top 10 total prescriptions
+##########################
 
 # collapse by specialty
 opioid2015_collapse_specialty <- opioid2015 %>% 
@@ -71,10 +131,10 @@ opioid2015_collapse_specialty <- opioid2015 %>%
             meanpay = mean(payment_count, na.rm=TRUE), 
             sumpay = sum(payment_count, na.rm=TRUE), 
             n=n())
-  
+
 # remove specialties with fewer than 1000 doctors
 opioid2015_collapse_specialty_trunc <- subset(opioid2015_collapse_specialty, n>=1000)
-  
+
 # top 10 payments by mean
 opioid2015_collapse_specialty <- arrange(opioid2015_collapse_specialty, desc(meanpay))
 opioid2015_collapse_specialty_t10mpay <- opioid2015_collapse_specialty[1:10,]
@@ -91,10 +151,6 @@ opioid2015_collapse_specialty_t10mpre <- opioid2015_collapse_specialty[1:10,]
 opioid2015_collapse_specialty <- arrange(opioid2015_collapse_specialty, desc(sumpre))
 opioid2015_collapse_specialty_t10spre <- opioid2015_collapse_specialty[1:10,]
 opioid2015_collapse_specialty_t10spre$sumpre <- opioid2015_collapse_specialty_t10spre$sumpre/10^6
-
-# replace ridiculous name
-# opioid2015_collapse_specialty_trunc$specialty <- as.character(opioid2015_collapse_specialty_trunc$specialty)
-# opioid2015_collapse_specialty_trunc$specialty[opioid2015_collapse_specialty_trunc$specialty=="STUDENTINANORGANIZEDHEALTHCAREEDUCATIONTRAININGPROGRAM"] <- "STUDENTTRAINING"
 
 # plot top 10 payments by mean
 ggplot(opioid2015_collapse_specialty_t10mpay, aes(x = reorder(specialty, meanpay), y=meanpay)) +
@@ -136,7 +192,7 @@ ggplot(opioid2015_collapse_specialty_trunc, aes(meanpay, meanpre)) +
   ylab("Mean Prescriptions") +
   theme_minimal(base_size = 12, base_family = "Georgia") 
 
-##### PLOT XX #####
+##### PLOT 4 #####
 
 opioid2015trunc <- subset(opioid2015, total_30_day_fill_count<5000)
 
@@ -172,38 +228,6 @@ ggplot(opioid2015_collapse_credentials_trunc, aes(x = reorder(credentials, -sum)
   theme_minimal(base_size = 12, base_family = "Georgia") +
   geom_bar(stat="identity") +
   theme(axis.text.x = element_text(angle = 90, hjust=1))
-
-##### PLOT 4 #####
-
-# collapse by payment count
-opioid2015_collapse_paymentcount <- opioid2015 %>% 
-  group_by(payment_count, specialty) %>%
-  summarize(mean = mean(total_30_day_fill_count, na.rm=TRUE), n=n())
-
-# subset to deal with sample size issue
-opioid2015_collapse_paymentcount_trunc <- subset(opioid2015_collapse_paymentcount, payment_count<=17)
-opioid2015_collapse_paymentcount_trunc$mean[opioid2015_collapse_paymentcount_trunc$payment_count>15] <- NA
-
-ggplot(subset(opioid2015_collapse_paymentcount_trunc, specialty=="Internal Medicine"), aes(x=payment_count, y=mean)) +
-  xlab("Number of opioid-related payments received") +
-  ylab("Mean opioid prescriptions") +
-  theme_minimal(base_size = 12, base_family = "Georgia") +
-  geom_point(alpha=0.5, colour="blue") +
-  geom_smooth(method='lm', colour="blue", fill=NA) +
-  geom_point(alpha=0.5, data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Orthopedic Surgery"), colour="red") +
-  geom_smooth(data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Orthopedic Surgery"), method='lm', colour="red", fill=NA) +
-  geom_point(alpha=0.5, data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Pain Management"), colour="green") +
-  geom_smooth(data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Pain Management"), method='lm', colour="green", fill=NA) +
-  geom_point(alpha=0.5, data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Anesthesiology"), colour="purple") +
-  geom_smooth(data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Anesthesiology"), method='lm', colour="purple", fill=NA) +
-  geom_point(alpha=0.5, data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Family Medicine"), colour="orange") +
-  geom_smooth(data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Family Medicine"), method='lm', colour="orange", fill=NA) +
-  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 850, label = "Internal Medicine", color="blue", size=3, fontface=1) +
-  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 625, label = "Orthopedic Surgery", color="red", size=3, fontface=1) +
-  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 1725, label = "Pain Management", color="green", size=3, fontface=1) +
-  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 1485, label = "Anesthesiology", color="purple", size=3, fontface=1) +
-  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 795, label = "Family Medicine", color="orange", size=3, fontface=1) 
-  
 
 # plot payment vs prescriptions
 ggplot(subset(opioid2015_collapse_paymentcount_trunc, specialty=="Pain Management"), aes(x=payment_count, y=mean)) +
@@ -302,5 +326,23 @@ hexbinplot(total_30_day_fill_count ~ payment, opioid2015_noutliers, xbins=30)
 
 # geom_hex(data=opioid2015_trunc, aes(x=payment_count, y=total_30_day_fill_count), alpha=0.3)
 
+
+
+
+# clean up credentials
+## change to character
+opioid2015$credentials <- as.character(opioid2015$credentials)
+## remove all white space
+opioid2015$credentials <- gsub(" ", "", opioid2015$credentials, fixed = TRUE)
+## everything uppercase
+opioid2015$credentials <- toupper(opioid2015$credentials)
+## everything that contains MD should be MD
+opioid2015$credentials[grepl("MD",opioid2015$credentials)]<-"MD"
+## everything that contains DO should be DO
+opioid2015$credentials[grepl("DO",opioid2015$credentials)]<-"DO"
+## everything that contains DDS or DMD should be DDS
+opioid2015$credentials[grepl("DDS",opioid2015$credentials) | grepl("DMD",opioid2015$credentials)]<-"DDS"
+## everything that is not MD, DO, or DDS should be OTHER
+opioid2015$credentials[(grepl("DDS",opioid2015$credentials) | grepl("DO",opioid2015$credentials) | grepl("MD",opioid2015$credentials))==FALSE]<-"OTHER"
 
 
