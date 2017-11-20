@@ -4,7 +4,6 @@ A recent study found that of all physician specialties, pain specialists and ane
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre.png)
 
-
 But this fails to convey how much each specialty prescribes in total.  The following bar chart plots the 10 specialities prescribing the most opioids in total:
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre_total.png)
@@ -13,7 +12,7 @@ So primary care specialties like family practice and internal medicine account f
 
 This could just be because primary care physicians see more patients.  We can account for this by plotting prescriptions per patient prescribed opioids:
 
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/prescriptions_hist_by_specialty)
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/prescriptions_hist_by_specialty.png)
 
 We see that primary care doctors prescribe more&mdash;even on a per-patient basis.  But we also that prescription habits vary significantly from doctor to doctor.  To further explore this, let's zoom in on the histogram of family medicine doctors:
 
@@ -43,13 +42,13 @@ As a start, here is a map of payment intensity, where payment intensity is measu
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/map_meetings.png)
 
-We will consider physicians who live in a light-colored area (about 0 meetings/doctor) in 2013 and move to a dark-colored area (more than 0.5 meetings/doctor) in 2014 or 2015.  We will conpare these physicians to those who stay in light colored areas for all three years.
+We will consider physicians who live in a light-colored area (about 0 meetings/doctor) in 2013 and move to a dark-colored area (more than 0.5 meetings/doctor) in 2014 or 2015.  We will compare these physicians to those who stay in light colored areas for all three years.
 
 Given these definitions, we find the following ("movers" in red, "stayers" in blue):
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/staymove.png)
 
-
+These plots show that physicians who move from low- to high-payment areas receive more payments and prescribe more opioids.  While this is evidence that physicians change their prescribing patterns in response to a new environment, it does not indicate what about the new environment (payments, patient population, etc.) influences the change.
 
 ### Challenges and next steps
 

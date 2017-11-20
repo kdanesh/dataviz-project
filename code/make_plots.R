@@ -50,8 +50,11 @@ opioid2015_collapse_specialty <- opioid2015 %>%
             sumpre = sum(total_30_day_fill_count, na.rm=TRUE), 
             meanpay = mean(payment_count, na.rm=TRUE), 
             sumpay = sum(payment_count, na.rm=TRUE), 
+            sumbene = sum(bene_count, na.rm=TRUE),
             n=n())
 
+opioid2015_collapse_specialty %>%
+  mutate(sumpresumpre/sumbene)
 # remove specialties with fewer than 1000 doctors
 opioid2015_collapse_specialty_trunc <- subset(opioid2015_collapse_specialty, n>=1000)
 
@@ -96,9 +99,9 @@ opioid2015trunc <- subset(opioid2015, total_30_day_fill_count<2500)
 # make histogram
 ggplot(opioid2015trunc, aes(x=total_30_day_fill_count)) + 
   xlab("Total opioid prescriptions") +
-  ylab("Number of primary care physicians") +
+  ylab("Number of physicians") +
   theme_minimal(base_size = 12, base_family = "Georgia") +
-  geom_histogram(binwidth=50, data = subset(opioid2015trunc, specialty=="Internal Medicine" | specialty=="Family Medicine"), fill = "orange", alpha = 0.6)
+  geom_histogram(binwidth=50, data = subset(opioid2015trunc, specialty=="Family Medicine"), fill = "orange", alpha = 0.6)
 
 ######### PLOT 2a ###########
 # prescriptions vs number of payments
@@ -212,6 +215,7 @@ ggplot(opioid2015trunc_t5, aes(prescriptions_pp, fill = specialty)) +
   theme(legend.position="bottom", legend.title=element_blank(), legend.text=element_text(size=9)) +
   xlab("Opioid prescriptions (per patient prescribed opioids)") +
   ylab("Number of physicians") +
+  scale_x_continuous(breaks=c(3,6,9,12)) +
   guides(fill=guide_legend(keywidth=0.1, keyheight=0.1, default.unit="inch"))
   
 ggplot(opioid2015trunc_t5, aes(total_30_day_fill_count, fill = specialty)) +
