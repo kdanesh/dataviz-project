@@ -153,11 +153,11 @@ ggplot(subset(opioid2015_collapse_paymentcount_trunc, specialty=="Internal Medic
   geom_smooth(data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Anesthesiology"), method='lm', colour="purple", fill=NA) +
   geom_point(alpha=0.4, data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Family Medicine"), colour="orange") +
   geom_smooth(data = subset(opioid2015_collapse_paymentcount_trunc, specialty=="Family Medicine"), method='lm', colour="orange", fill=NA) +
-  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 830, label = "Internal Medicine", color="blue", size=3, fontface=1.2) +
-  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 620, label = "Orthopedic Surgery", color="red", size=3, fontface=1.2) +
-  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 1675, label = "Pain Management", color="green", size=3, fontface=1.2) +
-  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 1475, label = "Anesthesiology", color="purple", size=3, fontface=1.2) +
-  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 775, label = "Family Medicine", color="orange", size=3, fontface=1.2) 
+  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 845, label = "Internal Medicine", color="blue", size=3, fontface=1.2) +
+  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 630, label = "Orthopedic Surgery", color="red", size=3, fontface=1.2) +
+  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 1715, label = "Pain Management", color="green", size=3, fontface=1.2) +
+  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 1490, label = "Anesthesiology", color="purple", size=3, fontface=1.2) +
+  annotate("text", family="Georgia", hjust=0, x = 15.25, y = 785, label = "Family Medicine", color="orange", size=3, fontface=1.2) 
 
 ######### PLOT 2c #########
 # mean number of payment, by county
