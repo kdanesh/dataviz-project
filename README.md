@@ -1,24 +1,26 @@
 # Part 1: Who's Prescribing the Most Opioids? It's Your Primary Care Doc
 
-A recent study found that of all physician specialties, pain specialists and anesthesiologists prescribe the most opioids. This is true on average, as shown in the following bar chart:
+In the early 2000s, when opioid manufacturers were seeking ways to spread new drugs to more patients, a new plan was formed: target the primary care docs.
 
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre.png)
+These were not doctors trained to treat chronic pain.  Nor were they routinely performing painful procedures.  They were the doctors who helped give birth, treated children sick with the flu, performed annual physical exams, and cared for the elderly.
 
-But this fails to convey how much each specialty prescribes in total.  The following bar chart plots the 10 specialities prescribing the most opioids in total:
+In other words, they saw the most patients.  And that's precisely what made them attractive to opioid manufacturers.
+
+Over 15 years later, it looks as though their marketing plan has paid off.  In 2015, only pain management, anesthesiologists, and rehabilitation doctors prescribed more than primary care doctors on average.  And in total, primary care specialties like family and internal medicine prescribed over X% of all opioids in the U.S., amounting to $X in revenue.
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre_total.png)
 
-So primary care specialties like family practice and internal medicine account for the majority of opioid prescriptions, even though the average primary care physician doesn't prescribe as much as the average pain specialist.  (There are many more primary care physicians, after all.)
-
-This could just be because primary care physicians see more patients.  We can account for this by plotting prescriptions per patient prescribed opioids:
+This may not come as a surprise since primary care doctors see more patients than specialists.  But the trend holds even when controlling for the number of patients seen.  For almost any amount of opioids prescribed per patient ranging from 0 to 12 prescriptions per year, there are more primary care doctors prescribing that amount than any other type of doctor.
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/prescriptions_hist_by_specialty.png)
 
-We see that primary care doctors prescribe more&mdash;even on a per-patient basis.  But we also that prescription habits vary significantly from doctor to doctor.  To further explore this, let's zoom in on the histogram of family medicine doctors:
+This is partly due to the sheer number of internal medicine and family practice doctors in the U.S.  But it is also due to striking variation in the amount of opioids prescribed per patient by primary care doctors.  Orthopedic surgeons are a useful comparison: nearly all of them prescribed between zero and three opioid prescriptions per patient in 2015, meaning prescribing behavior was relatively consistent across physicians.
 
-x% prescribe more than the average anesthesiologist, and y% prescribe more than the average pain specialist.  This makes little sense given that family medicine doctors are not usually trained to treat chronic pain.
 
-Finally, we can see how prescription rates vary across the country:
+On the other hand, internal and family medicine doctors had a much wider range of prescribing behavior.  For example, X% of family physicians prescribed more than the average anesthesiologist, and Y% prescribed more than the average pain specialist.  Across the country, family physicians prescribed more opioids per patient than anesthesiologists in Z% of counties.
+
+Nearly all of those counties have seen an unprecedented rise in opioid deaths over the past 15 years.  That is evidence, perhaps, of a marketing plan gone wrong.
+
 
 # Part 2: Are Dollars for Docs Fueling the Opioid Epidemic?
 
@@ -48,7 +50,7 @@ Given these definitions, we find the following ("movers" in red, "stayers" in bl
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/staymove.png)
 
-These plots show that physicians who move from low- to high-payment areas receive more payments and prescribe more opioids.  While this is evidence that physicians change their prescribing patterns in response to a new environment, it does not indicate what about the new environment (payments, patient population, etc.) influences the change.
+These plots show that physicians who move from low- to high-payment areas receive more payments and prescribe more opioids.  While this is evidence that physicians change their prescribing patterns in response to a new environment, it does not indicate what about the new environment&mdash;be it payments, the patient population, their practice setting, or something else&mdash;motivates the change.
 
 ### Challenges and next steps
 
