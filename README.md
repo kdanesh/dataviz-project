@@ -24,6 +24,8 @@ Nearly all of those counties have seen an unprecedented rise in opioid deaths ov
 
 # Part 2: Are Dollars for Docs Fueling the Opioid Epidemic?
 
+_NOTE: STILL NEED TO DRAFT THE WRITTEN TEXT FOR THIS PART_
+
 Let's start by looking at the relationship between prescriptions and payments:
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/meetings_30dayfill.png)
