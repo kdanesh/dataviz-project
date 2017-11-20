@@ -1,12 +1,27 @@
-# Payments, Prescriptions, and the Opioid Epidemic
+# Part 1: Who's Prescribing the Most Opioids? It's Your Primary Care Doc
 
-In light of [past](http://www.nytimes.com/2007/05/10/business/11drug-web.html?mcubz=0) and [recent](http://www.npr.org/sections/thetwo-way/2017/09/19/552135830/41-states-to-investigate-pharmaceutical-companies-over-opioids) news that pharmaceutical companies may have fueled the opioid epidemic, I plan to study the association between payments made by opioid manufacturers to physicians and opioid prescriptions. In particular, I would like to explore whether payments are significantly associated with prescriptions.
+A recent study found that of all physician specialties, pain specialists and anesthesiologists prescribe the most opioids. This is true on average, as shown in the following bar chart:
 
-In order to study this assocation, I use the following measures:
-- number of opioid-related payments: the number of times a physician was paid by a pharmaceutical company to learn about an opioid
-- opioid prescriptions: the number of 30-day prescriptions of any opioid
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre.png)
 
-I use two other variables, county and physician specialty, to further break down the association.
+
+But this fails to convey how much each specialty prescribes in total.  The following bar chart plots the 10 specialities prescribing the most opioids in total:
+
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre_total.png)
+
+So primary care specialties like family practice and internal medicine account for the majority of opioid prescriptions, even though the average primary care physician doesn't prescribe as much as the average pain specialist.  (There are many more primary care physicians, after all.)
+
+This could just be because primary care physicians see more patients.  We can account for this by plotting prescriptions per patient prescribed opioids:
+
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/prescriptions_hist_by_specialty)
+
+We see that primary care doctors prescribe more&mdash;even on a per-patient basis.  But we also that prescription habits vary significantly from doctor to doctor.  To further explore this, let's zoom in on the histogram of family medicine doctors:
+
+x% prescribe more than the average anesthesiologist, and y% prescribe more than the average pain specialist.  This makes little sense given that family medicine doctors are not usually trained to treat chronic pain.
+
+Finally, we can see how prescription rates vary across the country:
+
+# Part 2: Are Dollars for Docs Fueling the Opioid Epidemic?
 
 Let's start by looking at the relationship between prescriptions and payments:
 
@@ -14,43 +29,27 @@ Let's start by looking at the relationship between prescriptions and payments:
 
 We see a strong positive relationship here. In other words, physicians who receive more payments prescribe more opioids on average.
 
-Let's further break down this relationship, first by geography. The following two maps plot the mean number of opioid-related payments and mean opioid prescriptions by county:
+But this relationship could be driven by differences in physician specialty.  We can rule this out by replicating this plot for the five specialties that prescribe the most opioids:
+
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/prescriptions_payments_by_specialty.png)
+
+This plot shows that the positive association between payments and prescriptions  holds within specialties.  It also shows that certain specialties prescribe more (indicated by higher intercepts) and are more influenced by payments (indicated by  higher slopes) than others, on average.
+
+Even within specialties, it may be the case that prescription habits are fixed&mdash;i.e., do not change in response to payments or other factors.  According to this theory, pharmaceutical companies pay more to physicians with a higher inherent propensity for prescribing opioids, and payments are a form of compensation rather than influence.
+
+We can test this theory by considering physicians who move from a place with high pharmaceutical payment intensity to a place with low pharmaceutical payment intensity.  The theory would predict that these physicians prescribe the same amount of opioids before and after their move.
+
+As a start, here is a map of payment intensity, where payment intensity is measured as the mean number of payments received by a physician in a given county:
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/map_meetings.png)
 
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/map_30dayfill.png)
+We will consider physicians who live in a light-colored area (about 0 meetings/doctor) in 2013 and move to a dark-colored area (more than 0.5 meetings/doctor) in 2014 or 2015.  We will conpare these physicians to those who stay in light colored areas for all three years.
 
-The maps look somewhat similar.  We can confirm this with a correlation plot, which restricts to counties with at least 50 physicians:
+Given these definitions, we find the following ("movers" in red, "stayers" in blue):
 
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/cty_scatterplot.png)
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/staymove.png)
 
-It may be worth further playing around with this plot, e.g., by coloring the points so that they correspond to certain regions of the U.S., or by having the size of the points vary with population.
 
-Having broken down the relationship between payments and prescriptions by geography, let's now turn to another useful variable: physician specialty.
-
-The following two bar charts plot the 10 specialities receiving the most payments and prescribing the most opioids:
-
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pay.png)
-
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre.png)
-
-The bar charts look somewhat similar.  Again, we can confirm this with a correlation plot, which restricts to specialties with at least 1,000 physicians:
-
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_scatter.png)
-
-So far we've looked at *average* payments and prescriptions by specialty.  This does not convey how much each specialty is prescribing in an absolute sense.  To get a sense for this, let's now plot *total* prescriptions by specialty:
-
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre_total.png)
-
-Woah!  It looks like primary care specialties like family practice and internal medicine account for the majority of opioid prescriptions, even though the average primary care physician doesn't prescribe nearly as much as the average pain specialist.  (There are many more primary care physicians, after all.)
-
-But just because the average primary care physician doesn't prescribe as much as the average pain specialist doesn't mean that some primary care physicians don't prescribe a lot.  To explore this thought, we can compare density plots of prescriptions for each group (family practitioners in red, and pain specialists in blue):
-
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/density_fam_vs_pain.png)
-
-It looks like a nontrivial share of family practitioners prescribe more than the average pain specialist&mdash;probably not the best thing for public health, especially considering how many more family practitioners there are:
-
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/histogram_fam_vs_pain.png)
 
 ### Challenges and next steps
 
