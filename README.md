@@ -52,7 +52,7 @@ Given these definitions, we find the following ("movers" in red, "stayers" in bl
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/staymove.png)
 
-These plots show that physicians who moved from low- to high-payment areas received more payments and prescribed more opioids.  While this is evidence that physicians change their prescribing patterns in response to a new environment, it does not indicate what about the new environment&mdash;be it payments, their patients, practice setting, or something else&mdash;motivates the change.
+These plots show that physicians who moved from low- to high-payment areas received more payments and prescribed more opioids.  While this is evidence that physicians change their prescribing patterns in response to new environments, it does not indicate what about the new environments&mdash;be it new payments, patients, practice settings, or something else&mdash;motivates the change.
 
 ### Next steps
 
@@ -63,7 +63,7 @@ Part 1:
 - bring in data on deaths?
 
 Part 2:
-- think about whether the movers vs nonmovers comparison is useful; if so, clean up definitions of movers vs nonmovers clean up definitions of the two groups
+- think about whether the movers vs nonmovers comparison is useful; if so, clean up the design of the experiment, including definitions of the two groups
 - consider repeating movers comparison for people who moved from high- to low-payment areas
-- figure out way to isolate effect of payments on prescriptions, if feasible
 - maybe bring in geographic data on incidence of chronic pain to control for patient population?
+- brainstorm other ways to isolate effect of payments on prescriptions
