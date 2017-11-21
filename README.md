@@ -6,7 +6,7 @@ These doctors were not trained to treat chronic pain.  Nor were they routinely p
 
 In other words, they saw the most patients.  And that's precisely what made them attractive to opioid manufacturers.
 
-Over 15 years later, it looks like their marketing plan has paid off.  In 2015, only pain management, anesthesiologists, and rehabilitation doctors prescribed more than primary care doctors on average.  And in total, primary care specialties like family and internal medicine prescribed over X% of all opioids in the U.S., amounting to $X in revenue.
+Over 15 years later, it looks like their marketing plan has paid off.  In 2015, only pain management, anesthesiologists, and rehabilitation doctors prescribed more than primary care doctors on average.  And in total, primary care specialties like family and internal medicine prescribed the most by far: X% of all opioids in the U.S., amounting to $X in revenue.
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre_total.png)
 
