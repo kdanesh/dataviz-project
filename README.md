@@ -59,6 +59,7 @@ These plots show that physicians who moved from low- to high-payment areas recei
 Part 1:
 - clean up definition of primary care: for now I'm using family med + internal med + general practice as a proxy, so i'm omitting pediatricians and obgyn; it's also the case, i think, that some internal med docs are not considered primary care doctors (e.g., endocrinologists)
 - check if primary care docs are prescribing lots of opioids in places where there are no pain specialists. are death rates particularly high in these areas? this would be an interesting take -- basically the lack of specialty care in rural areas has perpetuated the opioid epidemic. could get at this by comparing overdose rates in rural areas with specialty docs vs rural areas without
+- play around with other ways to display the data in the stacked histogram (i like that it shows a fair amount, but i don't think it does so in the clearest way)
 - add in Alaska and Hawaii on QGIS map
 - bring in data on deaths?
 
