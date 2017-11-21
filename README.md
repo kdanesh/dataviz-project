@@ -6,7 +6,7 @@ These doctors were not trained to treat chronic pain.  Nor were they routinely p
 
 In other words, they saw the most patients.  And that's precisely what made them attractive to opioid manufacturers.
 
-Over 15 years later, it looks like their marketing plan has paid off.  In 2015, only pain management, anesthesiologists, and rehabilitation doctors prescribed more than primary care doctors on average.  And in total, primary care specialties like family and internal medicine prescribed the most by far: X% of all opioids in the U.S., amounting to $X in revenue.
+Over 15 years later, it looks like the marketing plan has paid off.  In 2015, only pain management, anesthesiologists, and rehabilitation doctors prescribed more than primary care doctors on average.  And in total, primary care specialties like family and internal medicine prescribed the most by far: X% of all opioids in the U.S., amounting to $X in revenue.
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre_total.png)
 
@@ -14,7 +14,7 @@ This may not come as a surprise since primary care doctors likely see more patie
 
 ![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/prescriptions_hist_by_specialty.png)
 
-This is partly due to the sheer number of primary care doctors in the U.S.  But it is also due to striking variation in the amount of opioids prescribed per patient by primary care doctors.  Orthopedic surgeons are a useful comparison: nearly all of them prescribed between zero and three opioid prescriptions per patient in 2015, meaning prescribing behavior was relatively consistent across physicians.  In contrast, primary care doctors had a much wider range of prescribing behavior: X% of primary care doctors prescribed more than the average anesthesiologist, and Y% prescribed more than the average pain specialist.
+This is partly due to the sheer number of primary care doctors in the U.S.  But it is also due to striking variation in the amount of opioids prescribed by primary care doctors.  Orthopedic surgeons are a useful comparison: nearly all of them prescribed between zero and three opioid prescriptions per patient in 2015, meaning prescribing behavior was relatively consistent across physicians.  In contrast, primary care doctors had a much wider range of prescribing behavior: X% of primary care doctors prescribed more than the average anesthesiologist, and Y% prescribed more than the average pain specialist.
 
 Prescription rates of primary care doctors also varied across the country.  In  places like Hancock County, Kentucky, and Randolph County, Georgia, rates were less than 2 prescriptions per person prescribed opioids.  But in places like Summit County, Colorado, and Sitka County, Alaska, rates were over 12 per person&mdash;more than one prescription a month per patient.
 
@@ -38,7 +38,7 @@ But this relationship could be driven by differences in physician specialty.  We
 
 This plot shows that the positive association between payments and prescriptions  holds within specialties.  It also shows that certain specialties prescribe more (indicated by higher intercepts) and are more influenced by payments (indicated by  higher slopes) than others, on average.
 
-Even within specialties, it may be the case that prescription habits are fixed&mdash;i.e., do not change in response to payments or other factors.  According to this theory, pharmaceutical companies pay more to physicians with a higher inherent propensity for prescribing opioids; payments are a form of compensation rather than influence.
+Even within specialties, it may be the case that prescription habits do not change in response to payments or other factors.  This would be true if pharmaceutical companies simply gave more payments to physicians with a higher inherent propensity for prescribing opioids, purely as a form of compensation rather than influence.
 
 We can test this theory by considering physicians who move from a place with high pharmaceutical payment intensity to a place with low pharmaceutical payment intensity.  The theory would predict that these physicians prescribe the same amount of opioids before and after their move.
 
@@ -63,6 +63,7 @@ Part 1:
 - bring in data on deaths?
 
 Part 2:
-- think about whether the movers vs nonmovers comparison is useful; if so, clean up definitions of movers vs nonmovers clean up definitions of the two groups 
+- think about whether the movers vs nonmovers comparison is useful; if so, clean up definitions of movers vs nonmovers clean up definitions of the two groups
+- consider repeating movers comparison for people who moved from high- to low-payment areas
 - figure out way to isolate effect of payments on prescriptions, if feasible
 - maybe bring in geographic data on incidence of chronic pain to control for patient population?
