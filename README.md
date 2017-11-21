@@ -2,7 +2,7 @@
 
 In the early 2000s, when opioid manufacturers were seeking ways to spread new drugs to more patients, a [new plan](http://ajph.aphapublications.org/doi/abs/10.2105/AJPH.2007.131714) was formed: target the primary care docs.
 
-These were not doctors trained to treat chronic pain.  Nor were they routinely performing painful procedures.  They helped give birth, treated children sick with the flu, performed annual physical exams, and cared for the elderly.
+These doctors were not trained to treat chronic pain.  Nor were they routinely performing painful procedures.  They helped give birth, treated children sick with the flu, performed annual physical exams, and cared for the elderly.
 
 In other words, they saw the most patients.  And that's precisely what made them attractive to opioid manufacturers.
 
