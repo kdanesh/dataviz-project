@@ -40,7 +40,7 @@ This plot shows that the positive association between payments and prescriptions
 
 Even within specialties, it may be the case that prescription habits do not change in response to payments or other factors.  This would be true if pharmaceutical companies simply gave more payments to physicians with a higher inherent propensity for prescribing opioids, purely as a form of compensation rather than influence.
 
-We can test this theory by considering physicians who move from a place with high pharmaceutical payment intensity to a place with low pharmaceutical payment intensity.  The theory would predict that these physicians prescribe the same amount of opioids before and after their move.
+We can test this theory by considering physicians who move from a place with high pharmaceutical payment intensity to a place with low pharmaceutical payment intensity.  The theory would predict that these physicians get paid the same amount by pharmaceutical companies, and prescribe the same amount of opioids, before and after their moves.
 
 As a start, here is a map of payment intensity, where payment intensity is measured as the mean number of payments received by a physician in a given county:
 
