@@ -35,7 +35,7 @@ We see a strong positive relationship here. In other words, physicians who recei
 
 But this relationship could be driven by differences in physician specialty.  We can rule this out by replicating this plot for the five specialties that prescribe the most opioids:
 
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/prescriptions_payments_by_specialty.png)
+![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/master/plots/prescriptions_meetings_by_specialty.png)
 
 This plot shows that the positive association between payments and prescriptions  holds within specialties.  It also shows that certain specialties prescribe more (indicated by higher intercepts) and are more influenced by payments (indicated by  higher slopes) than others, on average.
 
