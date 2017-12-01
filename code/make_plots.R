@@ -222,11 +222,10 @@ g_legend<-function(a.gplot){
 
 mylegend<-g_legend(p1)
 
-p3 <- grid.arrange(arrangeGrob(p1 + theme(legend.position="none"),
+grid.arrange(arrangeGrob(p1 + theme(legend.position="none"),
                                p2 + theme(legend.position="none"),
-                               nrow=1),
+                               nrow=1), mylegend, nrow=2,heights=c(10, 1))
 
-                                     mylegend, nrow=2,heights=c(10, 1))
 
 setwd("/Users/Kaveh/GitHub/dataviz-project/plots")
 ggsave("staymove.png", dpi = 400, width = 8, height = 6, units = "in")
