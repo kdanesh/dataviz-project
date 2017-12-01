@@ -78,7 +78,7 @@ ggplot(opioid2015_collapse_specialty_t10spre, aes(x = reorder(specialty, sumpre)
   theme_minimal(base_size = 12, base_family = "Georgia") +
   geom_bar(stat="identity", fill=pal) +
   coord_flip()
-ggsave("specialty_top10pre_total.png", dpi = 100, width = 8, height = 6, units = "in")
+ggsave("specialty_top10pre_total.png", dpi = 150, width = 8, height = 6, units = "in")
 
 # plot top 10 prescription by mean
 ggplot(opioid2015_collapse_specialty_t10mpre, aes(x = reorder(specialty, meanpre), y=meanpre)) +
@@ -109,7 +109,79 @@ ggplot(opioid2015trunc_t5, aes(prescriptions_pp, fill = specialty)) +
   ylab("Number of physicians") +
   scale_x_continuous(breaks=c(3,6,9,12)) +
   guides(fill=guide_legend(keywidth=0.1, keyheight=0.1, default.unit="inch"))
-ggsave("prescriptions_hist_by_specialty.png", dpi = 100, width = 8, height = 6, units = "in")
+ggsave("prescriptions_hist_by_specialty.png", dpi = 150, width = 8, height = 6, units = "in")
+
+setwd("/Users/Kaveh/GitHub/dataviz-project/plots")
+
+######### PLOT 1a ###########
+# bar chart: presciptions by specialty
+############################
+
+# collapse by specialty
+opioid2015_collapse_specialty <- opioid2015 %>% 
+  group_by(specialty) %>%
+  summarize(meanpre = mean(total_30_day_fill_count, na.rm=TRUE), 
+            sumpre = sum(total_30_day_fill_count, na.rm=TRUE), 
+            meanpay = mean(payment_count, na.rm=TRUE), 
+            sumpay = sum(payment_count, na.rm=TRUE), 
+            sumbene = sum(bene_count, na.rm=TRUE),
+            n=n())
+
+opioid2015_collapse_specialty %>%
+  mutate(sumpresumpre/sumbene)
+# remove specialties with fewer than 1000 doctors
+opioid2015_collapse_specialty_trunc <- subset(opioid2015_collapse_specialty, n>=1000)
+
+# top 10 prescriptions by sum
+opioid2015_collapse_specialty <- arrange(opioid2015_collapse_specialty, desc(sumpre))
+opioid2015_collapse_specialty_t10spre <- opioid2015_collapse_specialty[1:10,]
+opioid2015_collapse_specialty_t10spre$sumpre <- opioid2015_collapse_specialty_t10spre$sumpre/10^6
+
+# top 10 prescriptions by mean
+opioid2015_collapse_specialty <- arrange(opioid2015_collapse_specialty_trunc, desc(meanpre))
+opioid2015_collapse_specialty_t10mpre <- opioid2015_collapse_specialty[1:10,]
+
+# plot top 10 prescription by sum
+pal = c("#cccccc","#cccccc","#cccccc","#cccccc","#cccccc",
+        "#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0")
+ggplot(opioid2015_collapse_specialty_t10spre, aes(x = reorder(specialty, sumpre), y=sumpre)) +
+  xlab("") +
+  ylab("Total prescriptions (millions)") +
+  theme_minimal(base_size = 12, base_family = "Georgia") +
+  geom_bar(stat="identity", fill=pal) +
+  coord_flip()
+ggsave("specialty_top10pre_total.png", dpi = 150, width = 8, height = 6, units = "in")
+
+# plot top 10 prescription by mean
+ggplot(opioid2015_collapse_specialty_t10mpre, aes(x = reorder(specialty, meanpre), y=meanpre)) +
+  xlab("") +
+  ylab("Mean prescriptions (per physician)") +
+  theme_minimal(base_size = 12, base_family = "Georgia") +
+  geom_bar(stat="identity", fill="red") +
+  coord_flip() 
+
+##### PLOT 1b #####
+
+opioid2015trunc <- subset(opioid2015, total_30_day_fill_count<2000)
+
+opioid2015trunc_t5 <- subset(opioid2015trunc, specialty=="Family Medicine" | specialty=="Pain Management" | specialty=="Internal Medicine" | specialty=="Anesthesiology" | specialty=="Orthopedic Surgery")
+
+opioid2015trunc_t5 <- opioid2015trunc_t5 %>%
+  mutate(prescriptions_pp = total_30_day_fill_count/bene_count)
+
+opioid2015trunc_t5 <- subset(opioid2015trunc_t5, prescriptions_pp<12)
+
+pal = c("#fdc086", "#ffff99", "#386cb0", "#beaed4", "#7fc97f")
+ggplot(opioid2015trunc_t5, aes(prescriptions_pp, fill = specialty)) +
+  geom_histogram(binwidth = .1, alpha=1) +
+  scale_fill_manual("legend", values = pal) +
+  theme_minimal(base_size = 12, base_family = "Georgia") +
+  theme(legend.position="bottom", legend.title=element_blank(), legend.text=element_text(size=9)) +
+  xlab("Opioid prescriptions (per patient prescribed opioids)") +
+  ylab("Number of physicians") +
+  scale_x_continuous(breaks=c(3,6,9,12)) +
+  guides(fill=guide_legend(keywidth=0.1, keyheight=0.1, default.unit="inch"))
+ggsave("prescriptions_hist_by_specialty.png", dpi = 150, width = 8, height = 6, units = "in")
 
 
 ######### PLOT 1c ###########
