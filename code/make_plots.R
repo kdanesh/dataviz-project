@@ -78,7 +78,7 @@ ggplot(opioid2015_collapse_specialty_t10spre, aes(x = reorder(specialty, sumpre)
   theme_minimal(base_size = 12, base_family = "Georgia") +
   geom_bar(stat="identity", fill=pal) +
   coord_flip()
-ggsave("specialty_top10pre_total.png", dpi = 200, width = 8, height = 6, units = "in")
+ggsave("specialty_top10pre_total.png", dpi = 50, width = 8, height = 6, units = "in")
 
 # plot top 10 prescription by mean
 ggplot(opioid2015_collapse_specialty_t10mpre, aes(x = reorder(specialty, meanpre), y=meanpre)) +
@@ -109,7 +109,7 @@ ggplot(opioid2015trunc_t5, aes(prescriptions_pp, fill = specialty)) +
   ylab("Number of physicians") +
   scale_x_continuous(breaks=c(3,6,9,12)) +
   guides(fill=guide_legend(keywidth=0.1, keyheight=0.1, default.unit="inch"))
-ggsave("prescriptions_hist_by_specialty.png", dpi = 200, width = 8, height = 6, units = "in")
+ggsave("prescriptions_hist_by_specialty.png", dpi = 50, width = 8, height = 6, units = "in")
 
 
 ######### PLOT 1c ###########
@@ -140,7 +140,7 @@ ggplot(opioid2015_collapse_paymentcount_trunc, aes(x=payment_count, y=mean_30)) 
   theme_minimal(base_size = 12, base_family = "Georgia") +
   geom_point(alpha=0.5, size=3) +
   geom_smooth(method="lm", se=FALSE) 
-ggsave("meetings_30dayfill.png", dpi = 200, width = 8, height = 6, units = "in")
+ggsave("meetings_30dayfill.png", dpi = 50, width = 8, height = 6, units = "in")
 
 
 ######### PLOT 2b ###########
@@ -169,7 +169,7 @@ ggplot(subset(opioid2015_collapse_paymentcount_trunc), aes(x=payment_count, y=me
   theme_minimal(base_size = 12, base_family = "Georgia") +
   theme(legend.position="bottom", legend.title=element_blank(), legend.text=element_text(size=9)) +
   scale_color_manual(values=pal) 
-ggsave("prescriptions_meetings_by_specialty.png", dpi = 200, width = 8, height = 6, units = "in")
+ggsave("prescriptions_meetings_by_specialty.png", dpi = 50, width = 8, height = 6, units = "in")
 
 
 ######### PLOT 2c #########
