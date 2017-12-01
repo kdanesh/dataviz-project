@@ -140,7 +140,7 @@ ggplot(opioid2015_collapse_paymentcount_trunc, aes(x=payment_count, y=mean_30)) 
   theme_minimal(base_size = 12, base_family = "Georgia") +
   geom_point(alpha=0.5, size=3) +
   geom_smooth(method="lm", se=FALSE) 
-ggsave("meetings_30dayfill.png", dpi = 50, width = 8, height = 6, units = "in")
+ggsave("meetings_30dayfill.png", dpi = 5, width = 8, height = 6, units = "in")
 
 
 ######### PLOT 2b ###########
@@ -169,7 +169,7 @@ ggplot(subset(opioid2015_collapse_paymentcount_trunc), aes(x=payment_count, y=me
   theme_minimal(base_size = 12, base_family = "Georgia") +
   theme(legend.position="bottom", legend.title=element_blank(), legend.text=element_text(size=9)) +
   scale_color_manual(values=pal) 
-ggsave("prescriptions_meetings_by_specialty.png", dpi = 50, width = 8, height = 6, units = "in")
+ggsave("prescriptions_meetings_by_specialty.png", dpi = 5, width = 8, height = 6, units = "in")
 
 
 ######### PLOT 2c #########
