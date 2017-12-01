@@ -78,7 +78,7 @@ ggplot(opioid2015_collapse_specialty_t10spre, aes(x = reorder(specialty, sumpre)
   theme_minimal(base_size = 12, base_family = "Georgia") +
   geom_bar(stat="identity", fill=pal) +
   coord_flip()
-ggsave("specialty_top10pre_total.png", dpi = 150, width = 8, height = 6, units = "in")
+ggsave("specialty_top10pre_total.png", dpi = 400, width = 8, height = 6, units = "in")
 
 # plot top 10 prescription by mean
 ggplot(opioid2015_collapse_specialty_t10mpre, aes(x = reorder(specialty, meanpre), y=meanpre)) +
@@ -109,7 +109,7 @@ ggplot(opioid2015trunc_t5, aes(prescriptions_pp, fill = specialty)) +
   ylab("Number of physicians") +
   scale_x_continuous(breaks=c(3,6,9,12)) +
   guides(fill=guide_legend(keywidth=0.1, keyheight=0.1, default.unit="inch"))
-ggsave("prescriptions_hist_by_specialty.png", dpi = 150, width = 8, height = 6, units = "in")
+ggsave("prescriptions_hist_by_specialty.png", dpi = 400, width = 8, height = 6, units = "in")
 
 setwd("/Users/Kaveh/GitHub/dataviz-project/plots")
 
