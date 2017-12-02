@@ -334,8 +334,70 @@ ggsave("staymove.png", dpi = 400, width = 8, height = 6, units = "in")
 
 setwd("/Users/Kaveh/GitHub/dataviz-project/plots")
 
+######### PLOT 2e #########
+# mean payments and prescriptions by year, movers vs nonmovers
+##########################
+
+setwd("/Users/Kaveh/Dropbox/Berkeley/projects/econ/opioid/data_derived")
+county <- read.csv("county_pre_pay_deaths.csv")
+setwd("/Users/Kaveh/GitHub/dataviz-project/plots")
 
 
+county_pctpay <- county %>%
+  group_by(pct_pay) %>%
+  summarize(deaths = mean(deaths, na.rm=TRUE))
+
+ggplot(county_pctpay, aes(x=pct_pay, y=deaths)) +
+  xlab("50 quantiles of payments") +
+  ylab("Mean deaths") +
+  theme_minimal(base_size = 12, base_family = "Georgia") +
+  geom_point(alpha=0.5, size=3) +
+  geom_smooth(method="lm", se=FALSE, color="blue") 
+ggsave("county_payments_deaths.png", dpi = 400, width = 8, height = 6, units = "in")
+
+county_pctpre <- county %>%
+  group_by(pct_pre) %>%
+  summarize(deaths = mean(deaths, na.rm=TRUE))
+
+ggplot(county_pctpre, aes(x=pct_pre, y=deaths)) +
+  xlab("50 quantiles of primary care prescription rate") +
+  ylab("Mean deaths") +
+  theme_minimal(base_size = 12, base_family = "Georgia") +
+  geom_point(alpha=0.5, size=3) +
+  geom_smooth(method="lm", se=FALSE, color="red") 
+ggsave("county_prescriptions_deaths", dpi = 400, width = 8, height = 6, units = "in")
+
+setwd("/Users/Kaveh/Dropbox/Berkeley/projects/econ/opioid/data_derived")
+county <- read.csv("county_pre_pay_deaths.csv")
+setwd("/Users/Kaveh/GitHub/dataviz-project/plots")
+
+
+county_pctpay <- county %>%
+  group_by(pct_pay) %>%
+  summarize(deaths = mean(deaths, na.rm=TRUE))
+
+ggplot(county_pctpay, aes(x=pct_pay, y=deaths)) +
+  xlab("50 quantiles of payments") +
+  ylab("Mean deaths") +
+  theme_minimal(base_size = 12, base_family = "Georgia") +
+  geom_point(alpha=0.5, size=3) +
+  geom_smooth(method="lm", se=FALSE, color="blue") 
+ggsave("county_payments_deaths.png", dpi = 400, width = 8, height = 6, units = "in")
+
+county_pctpre <- county %>%
+  group_by(pct_pre) %>%
+  summarize(deaths = mean(deaths, na.rm=TRUE))
+
+ggplot(county_pctpre, aes(x=pct_pre, y=deaths)) +
+  xlab("50 quantiles of primary care prescription rate") +
+  ylab("Mean deaths") +
+  theme_minimal(base_size = 12, base_family = "Georgia") +
+  geom_point(alpha=0.5, size=3) +
+  geom_smooth(method="lm", se=FALSE, color="red") 
+ggsave("county_prescriptions_deaths.png", dpi = 400, width = 8, height = 6)
+
+
+  
 
 
 
@@ -381,7 +443,7 @@ opioid2015_collapse_credentials_trunc <- subset(opioid2015_collapse_credentials,
 # histogram: total prescriptions by primary care docs
 ############################
 
-# creat truncated version of dataset
+# create truncated version of dataset
 opioid2015trunc <- subset(opioid2015, total_30_day_fill_count<2500)
 
 # make histogram
