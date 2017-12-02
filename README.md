@@ -8,18 +8,18 @@ In other words, they saw the most patients.  And that's precisely what made them
 
 Over 15 years later, it looks like the marketing plan has paid off.  In 2015, only pain management, anesthesiologists, and rehabilitation doctors prescribed more than primary care doctors on average.  And in total, primary care specialties like family and internal medicine prescribed the most by far: X% of all opioids in the U.S., amounting to $X in revenue.
 
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/specialty_top10pre_total.png)
+![Image](plots/specialty_top10pre_total.png)
 
 This may not come as a surprise since primary care doctors likely see more patients than specialists.  But the trend holds even when controlling for the number of patients seen.  For almost any amount of opioids prescribed per patient ranging from 0 to 12 prescriptions per year, there are more primary care doctors prescribing that amount than any other type of doctor.
 
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/prescriptions_hist_by_specialty.png)
+![Image](plots/prescriptions_hist_by_specialty.png)
 
 This is partly due to the sheer number of primary care doctors in the U.S.  But it is also due to striking variation in the amount of opioids prescribed by primary care doctors.  Orthopedic surgeons are a useful comparison: nearly all of them prescribed between zero and three opioid prescriptions per patient in 2015, meaning prescribing behavior was relatively consistent across these physicians.  In contrast, primary care doctors had a much wider range of prescribing behavior: X% of primary care doctors prescribed more than the average anesthesiologist, and Y% prescribed more than the average pain specialist.
 
 
 Prescription rates of primary care doctors also varied across the country.  In  places like Hancock County, Kentucky, and Randolph County, Georgia, rates were less than 2 prescriptions per person prescribed opioids.  But in places like Summit County, Colorado, and Sitka County, Alaska, rates were over 12 per person&mdash;more than one prescription a month per patient.
 
-![Image](https://raw.githubusercontent.com/kdanesh/dataviz-project/gh-pages/plots/map_prescriptions_primarycare.png)
+![Image](plots/map_prescriptions_primarycare.png)
 
 Many of the counties with high primary care prescription rates have experienced a [dramatic rise](https://www.theguardian.com/society/ng-interactive/2016/may/25/opioid-epidemic-overdose-deaths-map) in overdose deaths over the past 15 years.  That is evidence, perhaps, of a marketing plan gone wrong.
 
