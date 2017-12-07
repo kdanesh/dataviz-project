@@ -45,13 +45,11 @@ We can test this theory by considering physicians who move from a place with hig
 
 As a start, here is a map of payment intensity, where payment intensity is measured as the mean number of payments received by a physician in a given county:
 
-![Image](plots/map_meetings.png)
-
 We will consider physicians who live in a light-colored area (about 0 meetings/doctor) in 2013 and move to a dark-colored area (more than 0.5 meetings/doctor) in 2014 or 2015.  We will compare these physicians to those who stay in light colored areas for all three years.
 
 Given these definitions, we find the following ("movers" in red, "stayers" in blue):
 
-![Image](plots/staymove.png)
+![Image](plots/pot.png)
 
 These plots show that physicians who moved from low- to high-payment areas received more payments and prescribed more opioids.  While this is evidence that physicians change their prescribing patterns in response to new environments, it does not indicate what about the new environments&mdash;be it new payments, patients, practice settings, or something else&mdash;motivates the change.
 
