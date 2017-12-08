@@ -97,10 +97,10 @@ list <- c("Family Medicine", "Pain Management", "Anesthesiology", "Internal Medi
           "Orthopedic Surgery", "Surgery", "Emergency Medicine",
           "Dentistry")
 
-pal <- c("#a6cee3", "#1f78b4", "#b2df8a",
-            "#33a02c", "#fb9a99", "#e31a1c",
-            "#fdbf6f", "#ff7f00", "#cab2d6",
-            "#6a3d9a")
+pal <- c("#cab2d6", "#ff7f00", "#e31a1c",
+            "#6a3d9a", "#fb9a99", "#b2df8a",
+            "#fdbf6f", "#1f78b4", "#33a02c",
+            "#a6cee3")
 
 #guides(fill=guide_legend(keywidth=0.1, keyheight=0.1, default.unit="inch")) +
   
@@ -150,7 +150,7 @@ opioid2015_trunc <- subset(opioid2015, payment_count<=50)
 
 # plot payment vs prescriptions
 ggplot(opioid2015_collapse_paymentcount_trunc, aes(x=payment_count, y=mean_30)) +
-  xlab("Number of opioid-related payments received") +
+  xlab("Number of opioid-related meetings attended") +
   ylab("Mean opioid prescriptions") +
   theme_minimal(base_size = 12, base_family = "Georgia") +
   geom_point(alpha=0.5, size=3) +
@@ -175,12 +175,12 @@ opioid2015_collapse_paymentcount_trunc <- opioid2015_collapse_paymentcount_trunc
   filter(specialty=="Orthopedic Surgery" | specialty=="Pain Management" | specialty=="Anesthesiology" | specialty=="Family Medicine" | specialty=="Internal Medicine")
 
 
-pal <- c("#a6cee3", "#1f78b4", "#b2df8a",
-         "#33a02c", "#fb9a99")
+pal <- c("#e31a1c", "#cab2d6", "#6a3d9a",
+         "#fdbf6f", "#ff7f00")
 ggplot(subset(opioid2015_collapse_paymentcount_trunc), aes(x=payment_count, y=mean, colour = specialty)) +
   geom_point(alpha=0.4) +
   geom_smooth(method='lm', se=FALSE) + 
-  xlab("Number of opioid-related payments received") +
+  xlab("Number of opioid-related meetings attended") +
   ylab("Mean opioid prescriptions") +
   theme_minimal(base_size = 12, base_family = "Georgia") +
   theme(legend.position="bottom", legend.title=element_blank(), legend.text=element_text(size=9)) +

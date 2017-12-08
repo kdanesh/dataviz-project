@@ -1,8 +1,8 @@
-# Part 1: Primary Care Doctors Prescribe the Most Opioids
+# Primary Care Doctors Prescribe the Most Opioids
 
 In the early 2000s, when opioid manufacturers were seeking ways to spread new drugs to more patients, a [new plan](http://ajph.aphapublications.org/doi/abs/10.2105/AJPH.2007.131714) was formed: target the primary care docs.
 
-These doctors were not trained to treat chronic pain.  Nor were they routinely performing painful procedures.  They helped give birth, treated children sick with the flu, performed annual physical exams, and cared for the elderly.
+These doctors were not trained to treat chronic pain.  Nor were they routinely performing painful procedures.  They delivered babies, treated children sick with the flu, performed annual physical exams, and cared for the elderly.
 
 In other words, they saw the most patients.  And that's precisely what made them attractive to opioid manufacturers.
 
@@ -10,29 +10,26 @@ Over 15 years later, the marketing plan seems to have paid off.  In 2015, only p
 
 ![Image](plots/specialty_top10pre_total.png)
 
-This could be due to the sheer number of primary care doctors, or the fact that primary care doctors have more patients than other specialties. But as it turns out, they prescribe more than others even after controlling for these potential confounds.
+This could be due to the sheer number of primary care doctors, or the fact that primary care doctors have more patients than other specialties. But they prescribe more than others even after controlling for these confounds.
 
-Consider Emmanuel Saez, a dentist in Ohio. In 2015, he made XX opioid prescriptions to 32 patients, amounting to a prescription-to-patient ratio of 2--average among dentists.
+Consider Michael Lochtefeld, a dentist in South Carolina. In 2015, he made 49 opioid prescriptions to 42 patients, amounting to a prescription-to-patient ratio of 1.2--average among dentists.
 
-Now consider Jonathan Gruber, a family physician in Texas. He made 100 opioid prescriptions to 50 patients in 2015, amounting to a prescription-to-patient ratio of 3--average among family physicians.
+Now consider Deepthi Singham, a family physician in Ohio. He made 304 opioid prescriptions to 84 patients in 2015, amounting to a prescription-to-patient ratio of 4.4--average among family physicians.
 
-Drs. Gruber and Saez form two ends of a spectrum. Dentists, who routinely prescribe opioids like X to their patients following surgery, are on one end. Family physicians, who XX, are on the other.
+Drs. Lochtefeld and Singham form two ends of a spectrum. The low-prescription end includes specialties like dentistry, orthopedic surgery, and emergency medicine, all of which are characterized by narrow ranges of prescribing behavior.
 
+The high-prescription end of the spectrum includes specialties focused on the treatment of pain, like anesthesiology and physical medicine and rehabilitation. These specialties are characterized by wide ranges of prescribing behavior, as indicated by the lack of sharp peaks in their distributions.
 ![Image](plots/prescriptions_dens_by_specialty.png)
 
-The low-prescription end of the spectrum includes specialties like orthopedic surgery, emergency medicine, and dentistry, all of which are characterized by narrow ranges of prescribing behavior. For example, over 95% of general surgeons prescribed between 0 and 3 opioids per person in 2015.
-
-The high-prescription end of the spectrum, unsurprisingly, includes specialties focused on the treatment of pain, like anesthesiology and physical medicine and rehabilitation. But it also includes family and internal medicine. These specialties are characterized by wide ranges of prescribing behavior, as indicated by the lack of sharp peaks in their distributions.
-
-The wide range of prescribing behavior among primary care physicians is also apparent geographically. In places like Hancock County, Kentucky, and Randolph County, Georgia, rates were less than 2 prescriptions per person prescribed opioids.  But in places like Summit County, Colorado, and Sitka County, Alaska, rates were over 12 per person&mdash;more than one prescription a month per patient.
+Family and internal medicine, the two most common primary care specialties, look  similar to specialties focused on the treatment of pain. Their wide range of prescribing behavior is also apparent geographically. In places like Hancock County, Kentucky, and Randolph County, Georgia, primary care prescription rates were less than 2 prescriptions per person prescribed opioids.  But in places like Summit County, Colorado, and Sitka County, Alaska, rates were over 12 per person&mdash;more than one prescription a month per patient.
 
 ![Image](plots/map_prescriptions_primarycare.png)
 
-There are several possible explanations for the wide range of prescription behavior among primary care physicians. Because they see the same patients on a recurring basis, they're more likely to prescribe the same patient the same drug multiple times in a year. But that does not explain the geographical variation, which could be explained by regional differences in pain prevalence or tolerance levels, or by differences in how medicine is practiced.
+There are several potential explanations for the wide range of prescription behavior among primary care physicians. They see the same patients on a recurring basis, which makes them more likely to prescribe more drugs to fewer patients. But that does not explain the geographical variation, which could be due to regional differences in pain prevalence or physician norms.
 
 Regardless of the explanation, one point lingers: it is surprising, and perhaps alarming, that family medicine doctors prescribe more opioids per patient than pain management doctors. That is evidence, perhaps, of a marketing plan gone wrong.
 
-# Part 2: Should Big Pharma Market Opioids?
+# Should Big Pharma Market Opioids?
 
 In August 1999, three Abbott Laboratories executives known as the Empress of Analgesia, Wizard of Oxycontin, and Queen of pain sent a report to the company's sales team.
 
@@ -46,11 +43,11 @@ The relationship between pharmaceutical companies and doctors has long been unde
 
 Most relationships between opioid manufacturers and physicians begin at meetings in clinics and hospitals, where doctors learn about new drugs or indications in exchange for a meal. Data on each of these transactions is recorded and made available to the public, along with data on physician prescribing habits.
 
-The data show that doctors who attended more opioid-related meetings prescribed more opioids. One additional meeting was associated with XX additional 30-day prescriptions on average.
+Combining these data sources shows that doctors who attended more opioid-related meetings prescribed more opioids. One additional meeting was associated with 33 additional 30-day prescriptions made in 2015.
 
 ![Image](plots/meetings_30dayfill.png)
 
-Some specialties, like pain management or anesthesiology, had higher opioid prescription rates than others. But the trend of prescribing more given more meetings remained true within specialties as well.
+Some specialties, like pain management or anesthesiology, had higher opioid prescription rates than others. But the positive relationship between meetings and prescriptions remaines true within specialties as well.
 
 ![Image](plots/prescriptions_meetings_by_specialty.png)
 
@@ -60,27 +57,19 @@ To address this question, consider a group of doctors who attended zero meetings
 
 If prescriptions are causing payments, then doctors who attended more meetings in 2015 would have already had higher prescription rates in 2014. If payments are causing prescriptions, then gaps between the groups would increase after 2014.
 
-Both trends are true in the data. Compared with doctors who attended 1-9 meetings, doctors who attended 10 or more meetings were already prescribing XX% more opioids in 2014--evidence of targeting. But by 2015, the gap in prescriptions between these groups also increased significantly, indicating that the meetings had their intended effect.
+As it turns out, both trends are true in the data. Compared with doctors who attended 1-9 meetings, doctors who attended 10 or more meetings were already prescribing 91% more opioids in 2014--evidence of targeting. But by 2015, the gap in prescriptions between these groups also increased significantly, indicating that the meetings had their intended effect.
 
 ![Image](plots/pot.png)
 
-Should we end the practice of advertising? It is not clear. On the one hand, if advertising is causing overprescription, and overprescription is causing deaths, then perhaps the answer is yes.
-
-But on the other hand, it could be the case that pharmaceutical companies are helping doctors better treat pain. When in doubt, one can simply read reviews of opioids on websites like WebMD.
-
-One user writes, "". Another writes, "".
-
-Overall, it is likely that opioids are being overprescribed--especially in certain communities where doctors are rumored to be pill mills and XX. But reducing prescription rates without hurting the patients who need pain treatment most would require targeting.
+But even if it were conclusive, the policy conclusion would not be trivial. On the one hand, if advertising is causing overprescription, and overprescription is causing deaths, then it would seem reasonable to more strictly regulate the advertising of opioids. While such a policy could improve deaths, particlarly in areas of the country where overdose deaths are commonplace, it could replace those deaths with an epidemic of debilitating chronic pain.
 
 ![Image](plots/map_overdose_deaths.png)
 
-Until that time, it remains unclear whether advertising is improving outcomes. And in the meantime, sales teams should act knowing lives are at stake. A public health emergency has no room for empresses, wizards, queens, or crusaders. Only healers.
+Then ideal policy, then, requires a delicate balance between reducing overprescription and treating pain. Until such a policy is implemented, there is no room for empresses, wizards, queens, or crusaders. Only healers.
 
-### Next steps
+#### Next steps
 
-Part 1:
-- clean up definition of primary care: for now I'm using family med + internal med + general practice as a proxy, so i'm omitting pediatricians and obgyn; it's also the case, i think, that some internal med docs are not considered primary care doctors (e.g., endocrinologists)
-- check if primary care docs are prescribing lots of opioids in places where there are no pain specialists. are death rates particularly high in these areas? this would be an interesting take -- basically the lack of specialty care in rural areas has perpetuated the opioid epidemic. could get at this by comparing overdose rates in rural areas with specialty docs vs rural areas without
-
-Part 2:
-- maybe bring in geographic data on incidence of chronic pain to control for patient population?
+- Be clearer about data sources
+- Document any data restrictions made in each plot
+- Interview top prescribers
+- Interview patients
