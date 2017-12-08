@@ -1,4 +1,5 @@
-# Primary Care Doctors Prescribe the Most Opioids
+# Part 1: Primary Care Doctors Prescribe the Most Opioids
+___
 
 In the early 2000s, when opioid manufacturers were seeking ways to spread new drugs to more patients, a [new plan](http://ajph.aphapublications.org/doi/abs/10.2105/AJPH.2007.131714) was formed: target the primary care docs.
 
@@ -37,7 +38,10 @@ There are several potential explanations for the wide range of prescription beha
 
 Regardless of the explanation, one point lingers: it is surprising, and perhaps alarming, that family medicine doctors prescribe more opioids per patient than pain management doctors. That is evidence, perhaps, of a marketing plan gone wrong.
 
-# Should Big Pharma Market Opioids?
+---
+
+# Part 2: Should Big Pharma Market Opioids?
+___
 
 In August 1999, three Abbott Laboratories executives known as the Empress of Analgesia, Wizard of Oxycontin, and Queen of pain sent a report to the company's sales team.
 
@@ -74,6 +78,8 @@ But even if it were conclusive, the policy conclusion would not be trivial. On t
 ![Image](plots/map_overdose_deaths.png)
 
 Then ideal policy, then, requires a delicate balance between reducing overprescription and treating pain. Until such a policy is implemented, there is no room for empresses, wizards, queens, or crusaders. Only healers.
+
+---
 
 #### Next steps
 
